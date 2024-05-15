@@ -1,4 +1,4 @@
-package com.example.application;
+package com.ltsoftwaresupport.analyticalflow;
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
@@ -14,10 +14,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Theme(value = "analyticalflow")
-public class Application implements AppShellConfigurator {
+public class AnalyticalFlowApplication implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(AnalyticalFlowApplication.class, args);
     }
 
 }

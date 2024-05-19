@@ -13,14 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class UserEndpoint extends DefaultEndpoint<User, Long, UserRepository> {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
     @Autowired
     public UserEndpoint(UserRepository repository, PasswordEncoder passwordEncoder) {
-        super(repository); // Passando o repository para o construtor da superclasse
+        super(repository);
         this.passwordEncoder = passwordEncoder;
     }
-
-
 
     @Override
     public User save(User user) throws DefaultException {

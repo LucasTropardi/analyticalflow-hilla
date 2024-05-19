@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; width: 100%;}
+.left-section {display: flex; align-items: center; gap: 1rem;}  
+.right-section {display: flex; align-items: center; gap: 1rem;}

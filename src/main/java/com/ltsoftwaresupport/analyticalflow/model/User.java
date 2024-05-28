@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+/**
+ * @author Lucas Tropardi
+ */
 @Table(name = "user", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"email"})
 })

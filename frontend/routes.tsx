@@ -1,7 +1,6 @@
-import MainLayout from 'Frontend/views/MainLayout.js';
+import MainLayout from 'Frontend/views/MainLayout';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
 import HomeView from './views/pages/Home';
-import RegisterView from './views/pages/auth/RegisterView';
 
 const routing = [
   {
@@ -9,7 +8,6 @@ const routing = [
     handle: { title: 'Main' },
     children: [
       { path: '/', element: <HomeView />, handle: { title: 'Home' } },
-
     ],
   },
 ] as RouteObject[];

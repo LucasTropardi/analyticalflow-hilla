@@ -1,8 +1,10 @@
 package com.ltsoftwaresupport.analyticalflow.model;
 
-
 import lombok.Getter;
 
+/**
+ * @author Lucas Tropardi
+ */
 public enum Role {
     ADMIN("Administrador"),
     USER("Usuário");

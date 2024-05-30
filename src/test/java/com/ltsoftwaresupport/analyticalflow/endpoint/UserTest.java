@@ -64,6 +64,6 @@ public class UserTest {
     void delete() throws DefaultException {
         assertNotNull(savedUser);
         endPoint.delete(savedUser);
-        assertThrows(DefaultException.class, () -> endPoint.load(savedUser.getId()));
+        assertThrows(DefaultException.class, () -> endPoint.load(savedUser.getEmail()));
     }
 }

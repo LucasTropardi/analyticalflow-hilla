@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Endpoint
 @AnonymousAllowed
-public class UserEndpoint extends DefaultEndpoint<User, Long, UserRepository> {
+public class UserEndpoint extends DefaultEndpoint<User, String, UserRepository> {
 
     @Autowired
     private final PasswordEncoder passwordEncoder;
@@ -34,17 +34,17 @@ public class UserEndpoint extends DefaultEndpoint<User, Long, UserRepository> {
         switch (mode) {
             case SAVE:
                 System.out.println("save");
-                if (repository.existsById(entity.getId())) throw new DefaultException("Usuário já cadastrado.");
+                if (repository.existsById(entity.getEmail())) throw new DefaultException("Usuário já cadastrado.");
                 break;
 
             case UPDATE:
                 System.out.println("update");
-                if (!repository.existsById(entity.getId())) throw new DefaultException("Usuário não cadastrado.");
+                if (!repository.existsById(entity.getEmail())) throw new DefaultException("Usuário não cadastrado.");
                 break;
 
             case DELETE:
                 System.out.println("delete");
-//                if (!repository.existsById(entity.getId())) throw new DefaultException("Usuário não cadastrado.");
+//                if (!repository.existsById(entity.getEmail())) throw new DefaultException("Usuário não cadastrado.");
                 break;
         }
     }

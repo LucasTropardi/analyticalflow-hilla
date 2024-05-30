@@ -14,65 +14,53 @@ const navLinkClasses = ({ isActive }: { isActive: boolean }) => {
 export default function MainLayout() {
   const currentTitle = useRouteMetadata()?.title ?? 'My App';
   const navigate = useNavigate();
-  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
-  const [isRegisterDialogOpen, setIsRegisterDialogOpen] = useState(false);
 
   useEffect(() => {
     document.title = currentTitle;
   }, [currentTitle]);
 
   const handleRegisterClick = () => {
-    setIsRegisterDialogOpen(true);
+    navigate('/register'); 
   };
-
-  const closeRegisterDialog = () => {
-    setIsRegisterDialogOpen(false);
-  }
 
   const handleLoginClick = () => {
-    setIsLoginDialogOpen(true);
-  };
-
-  const closeLoginDialog = () => {
-    setIsLoginDialogOpen(false);
+    navigate('/login');
   };
 
   return (
     <AppLayout primarySection="drawer">
-      <div slot="drawer" className="flex flex-col justify-between h-full p-m">
+      <section slot="drawer" className="flex flex-col justify-between h-full p-m">
         <header className="flex flex-col gap-m">
           <span className="font-semibold text-l">My App</span>
           <nav>
             <NavLink className={navLinkClasses} to="/">
-              Hello World
+              Home
             </NavLink>
           </nav>
         </header>
-      </div>
+      </section>
 
-      <div slot="navbar" className="navbar">
-        <div className="left-section">
+      <section slot="navbar" className="navbar">
+        <section className="left-section">
           <DrawerToggle aria-label="Menu toggle"></DrawerToggle>
           <h1 className="text-l m-0">{currentTitle}</h1>
-        </div>
-        <div className="right-section">
-          <div className="inline-flex rounded-md shadow-sm" role="group">
+        </section>
+        <section className="right-section">
+          <section className="inline-flex rounded-md shadow-sm" role="group">
             <Button theme='icon' onClick={handleLoginClick} className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
               Entrar
             </Button>
             <Button theme='icon' onClick={handleRegisterClick} className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
               <i className="fa-solid fa-user-plus"></i>
             </Button>
-          </div>
-        </div>
-      </div>
+          </section>
+        </section>
+      </section>
 
       <Suspense>
         <Outlet />
       </Suspense>
-
-      <LoginDialog isOpen={isLoginDialogOpen} onClose={closeLoginDialog} />
-      <RegisterDialog isOpen={isRegisterDialogOpen} onClose={closeRegisterDialog} />
+      
     </AppLayout>
   );
 }

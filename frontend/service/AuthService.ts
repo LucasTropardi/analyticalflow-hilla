@@ -6,10 +6,10 @@ import UserDetails from 'Frontend/generated/org/springframework/security/core/us
 export const registerUser = async (nome: string, sobrenome: string, email: string, senha: string): Promise<User> => {
   try {
     const user = await UserEndpoint.save({
-      name: nome,
-      lastname: sobrenome,
       email,
       password: senha,
+      name: nome,
+      lastname: sobrenome,
       role: Role.USER,
     });
     return user as User;
